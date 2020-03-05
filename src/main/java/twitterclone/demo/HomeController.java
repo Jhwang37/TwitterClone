@@ -20,6 +20,17 @@ public class HomeController {
     @Autowired
     MessageRepository messageRepository;
 
+    @RequestMapping("/")
+    public String index(Model model) {
+        model.addAttribute("messages", messageRepository.findAll());
+        return "index";
+    }
+
+    @RequestMapping("/login")
+    public String login(){
+        return "login";
+    }
+
     @GetMapping("/register")
     public String showRegistrationPage(Model model) {
         model.addAttribute("user", new User());
@@ -41,35 +52,16 @@ public class HomeController {
     @GetMapping("/add")
     public String addMessage(Model model) {
         model.addAttribute("message", new Message());
-        return "addmessage";
+        return "addmessages";
     }
 
     @PostMapping("/process")
     public String processMessage(@Valid Message message, BindingResult result) {
         if (result.hasErrors()) {
-            return "redirect:/add";
+            return "redirect:/addmessages";
         }
         messageRepository.save(message);
-        return "redirect:/homepage";
-    }
-
-//    @RequestMapping("/")
-//    public String welcome() {
-//        return "index";
-//    }
-    @RequestMapping("/")
-    public String login(){
-        return "login";
-    }
-    @PostMapping("/login")
-    public String postmapLogin(){
-        return "index";
-    }
-
-    @RequestMapping("/homepage")
-    public String index(Model model) {
-        model.addAttribute("messages", messageRepository.findAll());
-        return "index";
+        return "redirect:/";
     }
 }
 

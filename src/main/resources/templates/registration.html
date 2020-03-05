@@ -1,47 +1,87 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/ad2f2dfe75.js" crossorigin="anonymous"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/css/mdb.min.css" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<h4>New User Registration</h4>
 
-<form autocomplete="off"
-      action="#"
-      th:action="@{/register}"
-      th:object="${user}" method="post">
 
-    First Name <mark><strong>
-    <span th:if="${#fields.hasErrors('firstName')}"
-          th:errors="*{firstName">First Name Error</span></strong></mark>
-    <input type="text" id="firstName" placeholder="First Name"
-    th:field="*{firstName}"/><br />
+<!--<form autocomplete="off"-->
+<!--      action="#"-->
+<!--      th:action="@{/register}"-->
+<!--      th:object="${user}" method="post">-->
 
-    Last Name <mark><strong>
-    <span th:if="${#fields.hasErrors('lastname')}"
-          th:errors="*{lastname">Last Name Error</span></strong></mark>
-    <input type="text" id="lastname" placeholder="Last Name"
-           th:field="*{lastname}"/><br />
-    Email <mark><strong>
-    <span th:if="${#fields.hasErrors('email')}"
-          th:errors="*{email">Email Error</span></strong></mark>
-    <input type="text" id="email" placeholder="Email"
-           th:field="*{email}"/><br />
+<!--    First Name <mark><strong>-->
+<!--    <span th:if="${#fields.hasErrors('firstName')}"-->
+<!--          th:errors="*{firstName">First Name Error</span></strong></mark>-->
+<!--    <input type="text" id="firstName" placeholder="First Name"-->
+<!--    th:field="*{firstName}"/><br />-->
 
-     Username <mark><strong>
-    <span th:if="${#fields.hasErrors('username')}"
-          th:errors="*{username">Username Error</span></strong></mark>
-    <input type="text" id="username" placeholder="User Name"
-           th:field="*{username}"/><br />
+<!--    Last Name <mark><strong>-->
+<!--    <span th:if="${#fields.hasErrors('lastname')}"-->
+<!--          th:errors="*{lastname">Last Name Error</span></strong></mark>-->
+<!--    <input type="text" id="lastname" placeholder="Last Name"-->
+<!--           th:field="*{lastname}"/><br />-->
+<!--    Email <mark><strong>-->
+<!--    <span th:if="${#fields.hasErrors('email')}"-->
+<!--          th:errors="*{email">Email Error</span></strong></mark>-->
+<!--    <input type="text" id="email" placeholder="Email"-->
+<!--           th:field="*{email}"/><br />-->
 
-    Password <mark><strong>
-    <span th:if="${#fields.hasErrors('password')}"
-          th:errors="*{password">Password Error</span></strong></mark>
-    <input type="text" id="password" placeholder="Password"
-           th:field="*{password}"/><br />
+<!--     Username <mark><strong>-->
+<!--    <span th:if="${#fields.hasErrors('username')}"-->
+<!--          th:errors="*{username">Username Error</span></strong></mark>-->
+<!--    <input type="text" id="username" placeholder="User Name"-->
+<!--           th:field="*{username}"/><br />-->
 
-    <button type="submit" class="btn btn-default">Submit</button>
-</form>
+<!--    Password <mark><strong>-->
+<!--    <span th:if="${#fields.hasErrors('password')}"-->
+<!--          th:errors="*{password">Password Error</span></strong></mark>-->
+<!--    <input type="text" id="password" placeholder="Password"-->
+<!--           th:field="*{password}"/><br />-->
+
+<!--    <button type="submit" class="btn btn-default">Submit</button>-->
+<!--</form>-->
+<div class="wrapper">
+    <form class="form-signin" style="width: 60%; margin: 0 auto; padding-top: 250px;" autocomplete="off"
+          action="#"
+          th:action="@{/register}"
+          th:object="${user}" method="post">
+        <h2 class="form-signin-heading" style="text-align: center">Register Account</h2>
+        <div style="margin: 0 0 auto 362px; width: 100px;">
+        <input type="text" id="firstName" placeholder="First Name"
+               th:field="*{firstName}"/></br>
+        <input type="text" id="lastname" placeholder="Last Name"
+               th:field="*{lastname}"/></br>
+        <input type="text" id="email" placeholder="Email"
+               th:field="*{email}"/></br>
+        <input type="text" id="username" placeholder="User Name"
+               th:field="*{username}"/></br>
+        <input type="text" id="password" placeholder="Password"
+               th:field="*{password}"/></br>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" style="width: 200px;" type="submit">Register</button>
+
+
+    </form>
+</div>
 </body>
 </html>

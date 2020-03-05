@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://.thymeleaf.org">
 <head>
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -14,7 +14,7 @@
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/ad2f2dfe75.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/css/mdb.min.css" rel="stylesheet">
@@ -25,7 +25,7 @@
 <!-----NavigationBar---->
 <section id="nav-bar">
     <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="/"><i class="fas fa-car"></i></a>
+        <a class="navbar-brand" href="/"><i class="fas fa-envelope-open-text"></i></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -36,26 +36,45 @@
                     <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/register">Register</a>
+                    <a class="nav-link" href=#>ABOUT</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/logout">CONTACT</a>
+                    <a class="nav-link" href=#>CONTACT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">REGISTER</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">LOGOUT</a>
                 </li>
             </ul>
         </div>
     </nav>
 </section>
-<h2>Login</h2>
-<a href="/register">Register account</a>
-<a href="/add">Add message</a>
-<a href="/logout">Logout</a>
+<!--<h2>Login</h2>-->
+<!--<a href="/register">Register account</a>-->
+
+<!--<a href="/logout">Logout</a>-->
 
 
-<div>
-    <div th:each="message : ${messages}">
-        <h2 th:inline="text">Title: [[${message.messageName}]]</h2>
-        <h4 th:inline="text">@ [[${message.messageShow}]]></h4>
-        </p>
+
+<div class="jumbotron">
+    <h1 class="display-4" style="text-align: center;">MESSAGE PEOPLE</h1>
+    <p class="lead" style="text-align: center;">MESSAGING PEOPLE </p>
+    <hr class="my-4">
+
+
+    <p class="lead" style="align-content: center; margin-bottom: 50px;">
+        <a class="btn btn-outline-primary" href="/login" role="button"
+           style="float: left; margin-left: 39%; margin-bottom: 30px;">LOGIN</a>
+        <a class="btn btn-outline-primary" href="/add" role="button" style="float: left;">ADD MESSAGE</a>
+    </p>
+</div>
+<div class="card" style="width: 18rem;" th:each="message : ${messages}">
+    <div class="card-body">
+        <h5 th:inline="text">[[${message.messageName}]]</h5>
+
+        <p th:inline="text">[[${message.messageShow}]]</p>
     </div>
 </div>
 </body>
