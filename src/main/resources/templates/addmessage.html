@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Secure</title>
+</head>
+<body>
+<form action="#" th:action="@{/process}" th:object="${message}" method="post"
+      enctype="multipart/form-data">
+
+    Title: <input type ="text" th:field ="*{messageName}" />
+    <span th:if="${#fields.hasErrors('messageName')}"
+          th:errors="*{messageName}"></span><br />
+
+    Message: <input type ="text" th:field="*{messageShow}" />
+    <span th:if="${#fields.hasErrors('messageShow')}"
+          th:errors="*{messageShow}"></span><br />
+    <input type ="submit" value = "Dweet" />
+
+</form>
+</body>
+</html>
